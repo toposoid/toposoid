@@ -8,9 +8,21 @@ networks:
         - subnet: 172.30.0.0/24
 
 services:
+  toposoid-knowledge-register-web:
+    image: toposoid/toposoid-knowledge-register-web:0.1.0
+    environment:
+      - GRAPHDB_HOST=172.30.0.2
+      - PRIVATE_IP_ADDRESS=localhost
+      - PLAY_HTTP_PORT=9002
+    ports:
+      - 9002:9002
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.9
+    depends_on:
+      - neo4j
   toposoid-component-dispatcher-web:
     image: toposoid/toposoid-component-dispatcher-web:0.1.0
-    tty: true
     environment:
       - GRAPHDB_HOST=172.30.0.2
       - PRIVATE_IP_ADDRESS=localhost
@@ -27,7 +39,6 @@ services:
       - toposoid-sentence-parser-web
   toposoid-sentence-parser-web:
     image: toposoid/toposoid-sentence-parser-web:0.1.0
-    tty: true
     environment:
       - PRIVATE_IP_ADDRESS=172.30.0.7
       - PLAY_HTTP_PORT=9001
@@ -38,7 +49,6 @@ services:
       - 9001:9001
   toposoid-deduction-admin-web:
     image: toposoid/toposoid-deduction-admin-web:0.1.0
-    tty: true
     environment:
       - PRIVATE_IP_ADDRESS=172.30.0.6
       - PLAY_HTTP_PORT=9003
@@ -54,21 +64,19 @@ services:
       - toposoid-deduction-unit-synonym-match-web
   toposoid-deduction-unit-exact-match-web:
     image: toposoid/toposoid-deduction-unit-exact-match-web:0.1.0
-    tty: true
     environment:
       - PRIVATE_IP_ADDRESS=localhost
       - SCALA_DATA_ACCESSOR_NEO4J_WEB_HOST=172.30.0.3
-      - PLAY_HTTP_PORT=9005
+      - PLAY_HTTP_PORT=9101
     networks:
       app_net:
         ipv4_address: 172.30.0.5
     ports:
-      - 9005:9005
+      - 9101:9101
     depends_on:
       - scala-data-accessor-neo4j-web
   toposoid-deduction-unit-synonym-match-web:
     image: toposoid/toposoid-deduction-unit-synonym-match-web:0.1.0
-    tty: true
     environment:
       - PRIVATE_IP_ADDRESS=localhost
       - SCALA_DATA_ACCESSOR_NEO4J_WEB_HOST=172.30.0.3
@@ -82,7 +90,6 @@ services:
       - scala-data-accessor-neo4j-web
   scala-data-accessor-neo4j-web:
     image: toposoid/scala-data-accessor-neo4j-web:0.1.0
-    tty: true
     environment:
       - GRAPHDB_HOST=172.30.0.2
       - PRIVATE_IP_ADDRESS=localhost
