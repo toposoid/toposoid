@@ -61,10 +61,7 @@ as follows
 
 ```bash
 # Deduction
-curl -X POST -H "Content-Type: application/json" -d '{
-    "premise":[],
-    "claim":["案ずるより産むが易し。"]
-}' http://localhost:9003/changeEndPoints
+curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":["案ずるより産むが易し。"]}' http://localhost:9004/analyze
 ```
 <img width="1179" alt="2021-10-05 12 12 08" src="https://user-images.githubusercontent.com/82787843/135954527-25c16a6b-b50a-4783-a5c0-1b8b4062d453.png">
 
