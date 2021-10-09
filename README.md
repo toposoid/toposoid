@@ -52,7 +52,7 @@ It takes more than 20 minutes to pull the Docker image for the first time.
 ## Usage
 ```bash
 # Regist knowledge
-curl -X POST -H "Content-Type: application/json" -d '{"sentences":["案ずるより産むが易し"]}' http://localhost:9002/regist
+curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"案ずるより産むが易し。", "json":"{}"}]}' http://localhost:9002/regist
 ```
 Try accessing http://localhost:7474 in your browser.
 You will be able to see the data you registered from the API.
