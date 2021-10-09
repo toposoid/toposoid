@@ -16,11 +16,12 @@ In this repository, it is published as Toposoid Community Edition. For more info
 ## Toposoid project dependencies
 <img width="1768" alt="2021-10-04 21 22 14" src="https://user-images.githubusercontent.com/82787843/135850618-15658ad2-66ef-4e26-bb9d-f4c3d32a3920.png">
 
-| ProjectName | Function | Type |
+| ProjectName | Function | Status |
 | - | - | - |
 | toposoid | Root project for all Toposoid projects |
 | toposoid-component-dispatcher-web | This microservice integrates two major microservices. One is a microservice that analyzes the predicate argument structure of sentences, and the other is a microservice that makes logical inferences. https://github.com/toposoid/toposoid-component-dispatcher-web.git|Microservice |
-| toposoid-knowledge-register-web |This Microservice registers the results of predicate argument structure analysis of Japanese natural sentences in a graph database. https://github.com/toposoid/toposoid-knowledge-register-web.git | Microservice |
+| toposoid-knowledge-register-web |This Microservice registers the results of predicate argument structure analysis of Japanese natural sentences in a graph database. https://github.com/toposoid/toposoid-knowledge-register-web.git | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml)
+ |
 | toposoid-sentence-parser-web | This Microservice analyzes the predicate argument structure of Japanese sentences and outputs the result in JSON. https://github.com/toposoid/toposoid-sentence-parser-web.git | Microservice |  
 | toposoid-deduction-admin-web | This microservice provides the ability to manage multiple deductive inference logic to register, update microservices. https://github.com/toposoid/toposoid-deduction-admin-web.git | Microservice |  
 | toposoid-deduction-unit-exact-match-web | This microservice provides the ability to determine if the text you enter matches the knowledge graph exactly. https://github.com/toposoid/toposoid-deduction-unit-exact-match-web.git　|Microservice |  
