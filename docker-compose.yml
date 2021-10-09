@@ -65,7 +65,7 @@ services:
   toposoid-deduction-unit-exact-match-web:
     image: toposoid/toposoid-deduction-unit-exact-match-web:0.1.0
     environment:
-      - PRIVATE_IP_ADDRESS=localhost
+      - PRIVATE_IP_ADDRESS= 172.30.0.5
       - SCALA_DATA_ACCESSOR_NEO4J_WEB_HOST=172.30.0.3
       - PLAY_HTTP_PORT=9101
     networks:
@@ -78,7 +78,7 @@ services:
   toposoid-deduction-unit-synonym-match-web:
     image: toposoid/toposoid-deduction-unit-synonym-match-web:0.1.0
     environment:
-      - PRIVATE_IP_ADDRESS=localhost
+      - PRIVATE_IP_ADDRESS=172.30.0.4
       - SCALA_DATA_ACCESSOR_NEO4J_WEB_HOST=172.30.0.3
       - PLAY_HTTP_PORT=9102
     networks:
@@ -92,7 +92,7 @@ services:
     image: toposoid/scala-data-accessor-neo4j-web:0.1.0
     environment:
       - GRAPHDB_HOST=172.30.0.2
-      - PRIVATE_IP_ADDRESS=localhost
+      - PRIVATE_IP_ADDRESS=172.30.0.3
       - PLAY_HTTP_PORT=9005
     networks:
       app_net:
