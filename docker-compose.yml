@@ -10,8 +10,11 @@ services:
   toposoid-ui:
     image: toposoid/toposoid-ui:0.3
     environment:
-      - TOPOSOID_COMPONENT_DISPATCHER_WEB_HOST=localhost
+      - TOPOSOID_COMPONENT_DISPATCHER_WEB_HOST=localhost:4444
+      - TOPOSOID_COMPONENT_DISPATCHER_WEB_PROXY=172.30.0.12
+      - TOPOSOID_KNOWLEDGE_REGISTER_WEB_PROXY=172.30.0.13  
       - TOPOSOID_WEB_HOST=localhost
+      - TOPOSOID_UI_PROTOCOL=http
     networks:
       app_net:
         ipv4_address: 172.30.0.15
@@ -33,7 +36,7 @@ services:
     image: toposoid/toposoid-knowledge-register-web:0.3
     environment:
       - GRAPHDB_HOST=172.30.0.2
-      - PRIVATE_IP_ADDRESS=localhost
+      - PRIVATE_IP_ADDRESS=172.30.0.13
       - SENTENCE_PARSER_JP_WEB_HOST=172.30.0.11
       - SENTENCE_PARSER_EN_WEB_HOST=172.30.0.9
       - COMMON_NLP_JP_WEB_HOST=172.30.0.10
@@ -54,7 +57,7 @@ services:
     image: toposoid/toposoid-component-dispatcher-web:0.3
     environment:
       - GRAPHDB_HOST=172.30.0.2
-      - PRIVATE_IP_ADDRESS=localhost            
+      - PRIVATE_IP_ADDRESS=172.30.0.12
       - SENTENCE_PARSER_JP_WEB_HOST=172.30.0.11
       - SENTENCE_PARSER_EN_WEB_HOST=172.30.0.9
       - DEDUCTION_ADMIN_WEB_HOST=172.30.0.6
@@ -194,4 +197,5 @@ services:
     networks:
       app_net:
         ipv4_address: 172.30.0.2
+
 

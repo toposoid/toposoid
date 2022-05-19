@@ -55,9 +55,9 @@ It takes more than 20 minutes to pull the Docker image for the first time.
 ```bash
 # Regist knowledge
 # Japanese
-curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}"}]}' http://localhost:9002/regist
+curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/regist/regist
 # English
-curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}"}]}' http://localhost:9002/regist
+curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/regist/regist
 ```
 Try accessing http://localhost:7474 in your browser.
 You will be able to see the data you registered from the API.
@@ -67,9 +67,9 @@ as follows
 ```bash
 # Deduction
 # Japanese
-curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}"}]}' http://localhost:9004/analyze
+curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/deduction/analyze
 # English
-curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}"}]}' http://localhost:9004/analyze
+curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/deduction/analyze
 ```
 <img width="1179" alt="2021-10-05 12 12 08" src="https://user-images.githubusercontent.com/82787843/135954527-25c16a6b-b50a-4783-a5c0-1b8b4062d453.png">
 
