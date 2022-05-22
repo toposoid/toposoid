@@ -8,19 +8,22 @@ Toposoid has the following features.
 In this repository, it is published as Toposoid Community Edition. For more information -> https://toposoid.com/
 
 ## Outline Drawing
-<img width="1760" alt="2021-10-04 21 20 01" src="https://user-images.githubusercontent.com/82787843/135850589-0df6b747-df02-435d-9992-ee1831fec916.png">
+<img width="1760" alt="" src="https://user-images.githubusercontent.com/82787843/135850589-0df6b747-df02-435d-9992-ee1831fec916.png">
 
 ## Knowledge Base Image
-<img width="1747" alt="2021-10-05 12 24 49" src="https://user-images.githubusercontent.com/82787843/135955167-4cbed1eb-a423-4201-82b7-743d37664184.png">
+<img width="1747" alt="" src="https://user-images.githubusercontent.com/82787843/135955167-4cbed1eb-a423-4201-82b7-743d37664184.png">
 
 ## Toposoid project dependencies
-<img width="1768" alt="2021-10-04 21 22 14" src="https://user-images.githubusercontent.com/82787843/135850618-15658ad2-66ef-4e26-bb9d-f4c3d32a3920.png">
+<img width="1770" alt="" src="https://user-images.githubusercontent.com/82787843/169680352-2879f155-2fd4-413d-9f47-3d25019a2a97.png">
+
+
 
 | ProjectName | Function | Status |
 | - | - | - |
 | toposoid | Root project for all Toposoid projects |
 | [toposoid-component-dispatcher-web](https://github.com/toposoid/toposoid-component-dispatcher-web.git) | This microservice integrates two major microservices. One is a microservice that analyzes the predicate argument structure of sentences, and the other is a microservice that makes logical inferences. | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml) |
 | [toposoid-knowledge-register-web](https://github.com/toposoid/toposoid-knowledge-register-web.git) |This Microservice registers the results of predicate argument structure analysis of Japanese natural sentences in a graph database.  | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml) |
+| [toposoid-sat-solver-web](https://github.com/toposoid/toposoid-sat-solver-web)  | This microservice provides solver functionality for Boolean satisfiability problems (SAT) or similar problems (Max-SAT etc.). | [![Test And Build](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml) |
 | [toposoid-sentence-parser-japanese-web](https://github.com/toposoid/toposoid-sentence-parser-japanese-web.git) | This Microservice analyzes the predicate argument structure of Japanese sentences and outputs the result in JSON.  |[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml)|  
 | [toposoid-common-nlp-japanese-web](https://github.com/toposoid/toposoid-common-nlp-japanese-web.git) |This Microservice provides an NLP function that handles Japanese and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml)|
 | [toposoid-sentence-parser-english-web](https://github.com/toposoid/toposoid-sentence-parser-english-web.git)|This Microservice analyzes dependency's structure of English sentences and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml)|
@@ -55,9 +58,9 @@ It takes more than 20 minutes to pull the Docker image for the first time.
 ```bash
 # Regist knowledge
 # Japanese
-curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}"}]}' http://localhost:9002/regist
+curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/regist/regist
 # English
-curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}"}]}' http://localhost:9002/regist
+curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/regist/regist
 ```
 Try accessing http://localhost:7474 in your browser.
 You will be able to see the data you registered from the API.
@@ -67,11 +70,55 @@ as follows
 ```bash
 # Deduction
 # Japanese
-curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}"}]}' http://localhost:9004/analyze
+curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/deduction/analyze
 # English
-curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}"}]}' http://localhost:9004/analyze
+curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/deduction/analyze
 ```
 <img width="1179" alt="2021-10-05 12 12 08" src="https://user-images.githubusercontent.com/82787843/135954527-25c16a6b-b50a-4783-a5c0-1b8b4062d453.png">
+
+
+## Deduction's Example
+### An example of a logic puzzle called a liar game
+
+* Demo Web Application https://toposoid-service.com/
+
+There are three people, A, B, and C, two honest people and the other one is a liar. And all three know who is honest and who is a liar. Here, an honest person is a person who always says the truth, and a liar is a person who always says the opposite of the truth. At this time, the following testimonies of A, B, and C were obtained.
+* A's testimony: C is a liar.
+* B's testimony: A is honest.
+* C's testimony: B is a liar.
+  Based on these testimonies, follow these steps to determine who is a liar.
+
+This problem can be defined by one regulation and three hypothesis.
+### regulation
+(A AND B AND NOT C)
+OR
+(A AND NOT B AND C)
+OR
+(NOT A AND B AND C)
+
+|Step|Premise & Claim|LogicTree|
+|-|-|-|
+|1|![](https://user-images.githubusercontent.com/82787843/169679404-0785c371-68d6-4382-b5ab-36f6b7551dcc.png)|![](https://user-images.githubusercontent.com/82787843/169679431-df6cd49b-af7b-4295-87b8-a3d24ce766f1.png)|
+|2|![](https://user-images.githubusercontent.com/82787843/169679492-ea6bcbd7-6199-4829-844c-7266f05ef85f.png)|![](https://user-images.githubusercontent.com/82787843/169679648-14d1084f-3b3e-4fbe-b6ad-388d4c7e9dcf.png)|
+|3|![](https://user-images.githubusercontent.com/82787843/169679601-f248236d-60cc-4a72-b957-edbfd565de7f.png)|![](https://user-images.githubusercontent.com/82787843/169679665-17ec03f0-27b7-4c8c-9fda-470c323da235.png)|
+
+
+### hypothesis
+* A → NOT C
+* B → A
+* C → NOT B
+
+|Step|Premise & Claim|LogicTree|
+|-|-|-|
+|4|![](https://user-images.githubusercontent.com/82787843/169679695-a110e6b4-b03f-448b-953d-26bf5c041c4b.png)|![](https://user-images.githubusercontent.com/82787843/169679711-4040e24a-7625-4c52-a60b-cd6d7a82c7bc.png)|
+|5|![](https://user-images.githubusercontent.com/82787843/169679738-a766115b-e0aa-41b3-aecf-218713e690f1.png)|![](https://user-images.githubusercontent.com/82787843/169679740-00b26b8a-180b-4c9a-ada6-165c9f0e9478.png)|
+|6|![](https://user-images.githubusercontent.com/82787843/169679754-eed0c88d-7452-4edb-9601-0d2c038d9d4a.png)|![](https://user-images.githubusercontent.com/82787843/169679755-4e0b213b-9892-42e8-960b-daafe1354752.png)|
+
+### result
+Press the Analyze button to start logical inference.
+![](https://user-images.githubusercontent.com/82787843/169679810-3d821e14-ca85-4178-9926-da4b1cf84fb7.png)
+
+
 
 ## Note
 * If you want to run in a remote environment or a virtual environment, change PRIVATE_IP_ADDRESS in docker-compose.yml according to your environment.
