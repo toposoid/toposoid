@@ -73,6 +73,49 @@ curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"se
 ```
 <img width="1179" alt="2021-10-05 12 12 08" src="https://user-images.githubusercontent.com/82787843/135954527-25c16a6b-b50a-4783-a5c0-1b8b4062d453.png">
 
+
+## Deduction's Example
+Demo Web Application https://toposoid-service.com/
+An example of a logic puzzle called a liar game
+
+There are three people, A, B, and C, two honest people and the other one is a liar. And all three know who is honest and who is a liar. Here, an honest person is a person who always says the truth, and a liar is a person who always says the opposite of the truth. At this time, the following testimonies of A, B, and C were obtained.
+* A's testimony: C is a liar.
+* B's testimony: A is honest.
+* C's testimony: B is a liar.
+  Based on these testimonies, follow these steps to determine who is a liar.
+
+This problem can be defined by one regulation and three hypothesis.
+### regulation
+(A AND B AND NOT C)
+OR
+(A AND NOT B AND C)
+OR
+(NOT A AND B AND C)
+
+|Step|Premise & Claim|LogicTree|
+|-|-|-|
+|1|![](https://user-images.githubusercontent.com/82787843/169679404-0785c371-68d6-4382-b5ab-36f6b7551dcc.png)|![](https://user-images.githubusercontent.com/82787843/169679431-df6cd49b-af7b-4295-87b8-a3d24ce766f1.png)|
+|2|![](https://user-images.githubusercontent.com/82787843/169679492-ea6bcbd7-6199-4829-844c-7266f05ef85f.png)|![](https://user-images.githubusercontent.com/82787843/169679648-14d1084f-3b3e-4fbe-b6ad-388d4c7e9dcf.png)|
+|3|![](https://user-images.githubusercontent.com/82787843/169679601-f248236d-60cc-4a72-b957-edbfd565de7f.png)|![](https://user-images.githubusercontent.com/82787843/169679665-17ec03f0-27b7-4c8c-9fda-470c323da235.png)|
+
+
+### hypothesis
+A → NOT C
+B → A
+C → NOT B
+
+|Step|Premise & Claim|LogicTree|
+|-|-|-|
+|4|![](https://user-images.githubusercontent.com/82787843/169679695-a110e6b4-b03f-448b-953d-26bf5c041c4b.png)|![](https://user-images.githubusercontent.com/82787843/169679711-4040e24a-7625-4c52-a60b-cd6d7a82c7bc.png)|
+|5|![](https://user-images.githubusercontent.com/82787843/169679738-a766115b-e0aa-41b3-aecf-218713e690f1.png)|![](https://user-images.githubusercontent.com/82787843/169679740-00b26b8a-180b-4c9a-ada6-165c9f0e9478.png)|
+|6|![](https://user-images.githubusercontent.com/82787843/169679754-eed0c88d-7452-4edb-9601-0d2c038d9d4a.png)|![](https://user-images.githubusercontent.com/82787843/169679755-4e0b213b-9892-42e8-960b-daafe1354752.png)|
+
+### result
+Press the Analyze button to start logical inference.
+![](https://user-images.githubusercontent.com/82787843/169679810-3d821e14-ca85-4178-9926-da4b1cf84fb7.png)
+
+
+
 ## Note
 * If you want to run in a remote environment or a virtual environment, change PRIVATE_IP_ADDRESS in docker-compose.yml according to your environment.
 * The memory allocated to Neo4J can be adjusted with NEO4J_dbms_memory_heap_max__size in docker-compose.yml.
