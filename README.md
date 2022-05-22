@@ -23,6 +23,7 @@ In this repository, it is published as Toposoid Community Edition. For more info
 | toposoid | Root project for all Toposoid projects |
 | [toposoid-component-dispatcher-web](https://github.com/toposoid/toposoid-component-dispatcher-web.git) | This microservice integrates two major microservices. One is a microservice that analyzes the predicate argument structure of sentences, and the other is a microservice that makes logical inferences. | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml) |
 | [toposoid-knowledge-register-web](https://github.com/toposoid/toposoid-knowledge-register-web.git) |This Microservice registers the results of predicate argument structure analysis of Japanese natural sentences in a graph database.  | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml) |
+| [toposoid-sat-solver-web](https://github.com/toposoid/toposoid-sat-solver-web)  | This microservice provides solver functionality for Boolean satisfiability problems (SAT) or similar problems (Max-SAT etc.). | [![Test And Build](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml) |
 | [toposoid-sentence-parser-japanese-web](https://github.com/toposoid/toposoid-sentence-parser-japanese-web.git) | This Microservice analyzes the predicate argument structure of Japanese sentences and outputs the result in JSON.  |[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml)|  
 | [toposoid-common-nlp-japanese-web](https://github.com/toposoid/toposoid-common-nlp-japanese-web.git) |This Microservice provides an NLP function that handles Japanese and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml)|
 | [toposoid-sentence-parser-english-web](https://github.com/toposoid/toposoid-sentence-parser-english-web.git)|This Microservice analyzes dependency's structure of English sentences and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml)|
@@ -77,8 +78,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"se
 
 
 ## Deduction's Example
+### An example of a logic puzzle called a liar game
+
 * Demo Web Application https://toposoid-service.com/
-An example of a logic puzzle called a liar game
 
 There are three people, A, B, and C, two honest people and the other one is a liar. And all three know who is honest and who is a liar. Here, an honest person is a person who always says the truth, and a liar is a person who always says the opposite of the truth. At this time, the following testimonies of A, B, and C were obtained.
 * A's testimony: C is a liar.
