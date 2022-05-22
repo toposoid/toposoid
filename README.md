@@ -14,7 +14,8 @@ In this repository, it is published as Toposoid Community Edition. For more info
 <img width="1747" alt="2021-10-05 12 24 49" src="https://user-images.githubusercontent.com/82787843/135955167-4cbed1eb-a423-4201-82b7-743d37664184.png">
 
 ## Toposoid project dependencies
-<img width="1768" alt="2021-10-04 21 22 14" src="https://user-images.githubusercontent.com/82787843/135850618-15658ad2-66ef-4e26-bb9d-f4c3d32a3920.png">
+![](https://user-images.githubusercontent.com/82787843/169680204-e6949470-c2be-4bb7-a232-9274c38232c2.png)
+
 
 | ProjectName | Function | Status |
 | - | - | - |
@@ -75,7 +76,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"se
 
 
 ## Deduction's Example
-Demo Web Application https://toposoid-service.com/
+* Demo Web Application https://toposoid-service.com/
 An example of a logic puzzle called a liar game
 
 There are three people, A, B, and C, two honest people and the other one is a liar. And all three know who is honest and who is a liar. Here, an honest person is a person who always says the truth, and a liar is a person who always says the opposite of the truth. At this time, the following testimonies of A, B, and C were obtained.
@@ -100,9 +101,9 @@ OR
 
 
 ### hypothesis
-A → NOT C
-B → A
-C → NOT B
+* A → NOT C
+* B → A
+* C → NOT B
 
 |Step|Premise & Claim|LogicTree|
 |-|-|-|
