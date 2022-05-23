@@ -90,11 +90,7 @@ There are three people, A, B, and C, two honest people and the other one is a li
 
 This problem can be defined by one regulation and three hypothesis.
 ### regulation
-(A AND B AND NOT C)
-OR
-(A AND NOT B AND C)
-OR
-(NOT A AND B AND C)
+* (A AND B AND NOT C) OR (A AND NOT B AND C) OR (NOT A AND B AND C)
 
 |Step|Premise & Claim|LogicTree|
 |-|-|-|
