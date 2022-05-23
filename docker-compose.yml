@@ -12,7 +12,7 @@ services:
     environment:
       - TOPOSOID_COMPONENT_DISPATCHER_WEB_HOST=localhost:4444
       - TOPOSOID_COMPONENT_DISPATCHER_WEB_PROXY=172.30.0.12
-      - TOPOSOID_KNOWLEDGE_REGISTER_WEB_PROXY=172.30.0.13  
+      - TOPOSOID_KNOWLEDGE_REGISTER_WEB_PROXY=172.30.0.13
       - TOPOSOID_WEB_HOST=localhost
       - TOPOSOID_UI_PROTOCOL=http
     networks:
@@ -20,6 +20,9 @@ services:
         ipv4_address: 172.30.0.15
     ports:
       - 4444:4444
+    depends_on:
+      - toposoid-component-dispatcher-web
+      - toposoid-knowledge-register-web
   toposoid-sat-solver-web:
     image: toposoid/toposoid-sat-solver-web:0.3
     environment:
@@ -70,6 +73,8 @@ services:
     ports:
       - 9004:9004
     depends_on:
+      - neo4j
+      - toposoid-sat-solver-web
       - toposoid-deduction-admin-web
       - toposoid-sentence-parser-japanese-web
       - toposoid-sentence-parser-english-web
