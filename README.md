@@ -119,7 +119,7 @@ Press the Analyze button to start logical inference.
 ## Note
 * If you want to run in a remote environment or a virtual environment, change PRIVATE_IP_ADDRESS in docker-compose.yml according to your environment.
 * The memory allocated to Neo4J can be adjusted with NEO4J_dbms_memory_heap_max__size in docker-compose.yml.
-
+* Services provided by Toposoid are accessible on port 4444
 
 ## License
 Toposoid Community Edition is an open source product licensed under Apache-2.0 License.
