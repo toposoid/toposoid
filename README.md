@@ -56,8 +56,8 @@ In this repository, it is published as Toposoid Community Edition. For more info
 ```bssh
 docker-compose up -d
 ```
-It takes more than 20 minutes to pull the Docker image for the first time.
-If vald does not start due to an error, after deleting the files directly under vald-config/backup, commenting out the following part in docker-compose.yml may work.
+* It takes more than 20 minutes to pull the Docker image for the first time.
+* If vald does not start due to an error, after deleting the files directly under vald-config/backup, commenting out the following part in docker-compose.yml may work.
 ```yml
   vald:
     image: vdaas/vald-agent-ngt:v1.6.3
