@@ -126,7 +126,7 @@ services:
       - SYNONYM_NOUN_SIMILARITY_THRESHHOLD_EN=0.52
       - SYNONYM_VERB_SIMILARITY_THRESHHOLD_EN=0.52
       - WORD2VEC_SIMILARITY_THRESHHOLD_EN=0.78
-      - TOPOSOID_SENTENCEBERT_MODEL_JP=sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+      - TOPOSOID_SENTENCEBERT_MODEL_EN=sentence-transformers/paraphrase-multilingual-mpnet-base-v2
       - PLAY_HTTP_PORT=9008
     networks:
       app_net:
