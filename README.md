@@ -1,7 +1,7 @@
 # Toposoid Community Edition
 Toposoid is a knowledge base construction platform.
 Toposoid has the following features.
-* You can build a knowledge base just by entering sentences (currently only Japanese is supported).
+* You can build a knowledge base just by entering sentences (Currently only supports Japanese and English).
 * If you enter the text as it is, you can search the knowledge base and obtain inference results.
 * This inferring program is designed so that developers can freely extend and replace it in their favorite programming language.
 
@@ -31,6 +31,11 @@ In this repository, it is published as Toposoid Community Edition. For more info
 | [toposoid-deduction-admin-web](https://github.com/toposoid/toposoid-deduction-admin-web.git) | This microservice provides the ability to manage multiple deductive inference logic to register, update microservices.  |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml)|  
 | [toposoid-deduction-unit-exact-match-web](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web.git) | This microservice provides the ability to determine if the text you enter matches the knowledge graph exactly. 　|[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml)| 
 | [toposoid-deduction-unit-synonym-match-web](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web.git　) | This microservice provides the ability to determine if the text you enter matches, provided that the knowledge graph and synonyms are equated. |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml)|
+
+| [toposoid-deduction-unit-sentence-vector-match-web](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web) | This microservice provides the ability to identify the input text as a distributed representation using the [Bert model](https://github.com/google-research/bert) and match it against the knowledge graph. |[![Test And Build](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml)|
+
+
+
 | [toposoid-deduction-common](https://github.com/toposoid/toposoid-deduction-common.git) | This is a common library used by toposoid developer in toposoid projects. In particular, this module is used by units that perform deductive reasoning in toposoid projects.  |[![Unit Test Action](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml)|
 | [toposoid-sentence-parser-japanese](https://github.com/toposoid/toposoid-sentence-parser-japanese.git) | This component performs predicate argument structure analysis when a Japanese sentence is given as input. Then, it outputs the information necessary for converting to a knowledge graph.  |[![Unit Test](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml)|
 | [toposoid-knowledgebase-model](https://github.com/toposoid/toposoid-knowledgebase-model.git) | This library defines a basic model commonly used in toposoid projects.  |[![Header Check Action](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml)|
