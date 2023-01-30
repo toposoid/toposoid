@@ -1,7 +1,7 @@
 # Toposoid Community Edition
 Toposoid is a knowledge base construction platform.
 Toposoid has the following features.
-* You can build a knowledge base just by entering sentences (currently only Japanese is supported).
+* You can build a knowledge base just by entering sentences (Currently only supports Japanese and English).
 * If you enter the text as it is, you can search the knowledge base and obtain inference results.
 * This inferring program is designed so that developers can freely extend and replace it in their favorite programming language.
 
@@ -14,7 +14,7 @@ In this repository, it is published as Toposoid Community Edition. For more info
 <img width="1747" alt="" src="https://user-images.githubusercontent.com/82787843/135955167-4cbed1eb-a423-4201-82b7-743d37664184.png">
 
 ## Toposoid project dependencies
-<img width="1770" alt="" src="https://user-images.githubusercontent.com/82787843/169680352-2879f155-2fd4-413d-9f47-3d25019a2a97.png">
+<img width="1770" alt="" src="https://user-images.githubusercontent.com/82787843/212686116-918624a7-7b98-45e4-8c48-9636939214d8.png">
 
 
 
@@ -31,6 +31,9 @@ In this repository, it is published as Toposoid Community Edition. For more info
 | [toposoid-deduction-admin-web](https://github.com/toposoid/toposoid-deduction-admin-web.git) | This microservice provides the ability to manage multiple deductive inference logic to register, update microservices.  |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml)|  
 | [toposoid-deduction-unit-exact-match-web](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web.git) | This microservice provides the ability to determine if the text you enter matches the knowledge graph exactly. 　|[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml)| 
 | [toposoid-deduction-unit-synonym-match-web](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web.git　) | This microservice provides the ability to determine if the text you enter matches, provided that the knowledge graph and synonyms are equated. |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml)|
+| [toposoid-deduction-unit-sentence-vector-match-web](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web) | This microservice provides the ability to identify the input text as a distributed representation using the [Bert model](https://github.com/google-research/bert) and match it against the knowledge graph. |[![Test And Build](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml)|
+| [data-accessor-vald-web](https://github.com/toposoid/data-accessor-vald-web) | This microservice is a CUID wrapper for [Vald](https://github.com/vdaas/vald). |[![Test And Build](https://github.com/toposoid/data-accessor-vald-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/data-accessor-vald-web/actions/workflows/action.yml)|
+| [toposoid-feature-vectorizer](https://github.com/toposoid/toposoid-feature-vectorizer) | The main implementation of this module is text-to-vector representation conversion and search. |[![Unit Test](https://github.com/toposoid/toposoid-feature-vectorizer/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-feature-vectorizer/actions/workflows/action.yml)|
 | [toposoid-deduction-common](https://github.com/toposoid/toposoid-deduction-common.git) | This is a common library used by toposoid developer in toposoid projects. In particular, this module is used by units that perform deductive reasoning in toposoid projects.  |[![Unit Test Action](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml)|
 | [toposoid-sentence-parser-japanese](https://github.com/toposoid/toposoid-sentence-parser-japanese.git) | This component performs predicate argument structure analysis when a Japanese sentence is given as input. Then, it outputs the information necessary for converting to a knowledge graph.  |[![Unit Test](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml)|
 | [toposoid-knowledgebase-model](https://github.com/toposoid/toposoid-knowledgebase-model.git) | This library defines a basic model commonly used in toposoid projects.  |[![Header Check Action](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml)|
@@ -46,21 +49,62 @@ In this repository, it is published as Toposoid Community Edition. For more info
 * docker-compose version 1.22.x
 
 ## Recommended environment
-* Required: at least 8GB of RAM (The maximum heap memory size of the JVM is set to 6G (Application: 4G, Neo4J: 2G))
+* Required: at least 20GB of RAM
 * Required: 65G or higher of HDD
 
 ## Setup
 ```bssh
-docker-compose up -d
+rm -f vald-config/backup/* && docker-compose up -d
 ```
-It takes more than 20 minutes to pull the Docker image for the first time.
+* It takes more than 20 minutes to pull the Docker image for the first time.
+* If vald does not start due to an error, after deleting the files directly under vald-config/backup, commenting out the following part in docker-compose.yml may work.
+```yml
+  vald:
+    image: vdaas/vald-agent-ngt:v1.6.3
+    #user: 1000:1000
+    volumes:
+      - ./vald-config:/etc/server
+      #- /etc/passwd:/etc/passwd:ro
+      #- /etc/group:/etc/group:ro
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.10
+    ports:
+      - 8081:8081
+```
+
+
 ## Usage
 ```bash
 # Regist knowledge
 # Japanese
-curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/regist/regist
+curl -X POST -H "Content-Type: application/json" -d '{
+    "premiseList": [],
+    "premiseLogicRelation": [],
+    "claimList": [
+        {
+            "sentence": "案ずるより産むが易し。",
+            "lang": "ja_JP",
+            "extentInfoJson": "{}",
+            "isNegativeSentence": false
+        }
+    ],
+    "claimLogicRelation": []
+}' http://localhost:4444/regist/regist
 # English
-curl -X POST -H "Content-Type: application/json" -d '{"knowledgeList":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/regist/regist
+curl -X POST -H "Content-Type: application/json" -d '{
+    "premiseList": [],
+    "premiseLogicRelation": [],
+    "claimList": [
+        {
+            "sentence": "Our life is our art.",
+            "lang": "en_US",
+            "extentInfoJson": "{}",
+            "isNegativeSentence": false
+        }
+    ],
+    "claimLogicRelation": []
+}' http://localhost:4444/regist/regist
 ```
 Try accessing http://localhost:7474 in your browser.
 You will be able to see the data you registered from the API.
@@ -70,9 +114,29 @@ as follows
 ```bash
 # Deduction
 # Japanese
-curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"案ずるより産むが易し。", "lang": "ja_JP", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/deduction/analyze
+curl -X POST -H "Content-Type: application/json" -d '{
+    "premise": [],
+    "claim": [
+        {
+            "sentence": "案ずるより産むが易し。",
+            "lang": "ja_JP",
+            "extentInfoJson": "{}",
+            "isNegativeSentence": false
+        }
+    ]
+}' http://localhost:4444/deduction/analyze
 # English
-curl -X POST -H "Content-Type: application/json" -d '{"premise":[],"claim":[{"sentence":"Our life is our art.", "lang": "en_US", "extentInfoJson":"{}", "isNegativeSentence":false}]}' http://localhost:4444/deduction/analyze
+curl -X POST -H "Content-Type: application/json" -d '{
+    "premise": [],
+    "claim": [
+        {
+            "sentence": "Our life is our art.",
+            "lang": "en_US",
+            "extentInfoJson": "{}",
+            "isNegativeSentence": false
+        }
+    ]
+}' http://localhost:4444/deduction/analyze
 ```
 <img width="1179" alt="2021-10-05 12 12 08" src="https://user-images.githubusercontent.com/82787843/135954527-25c16a6b-b50a-4783-a5c0-1b8b4062d453.png">
 
