@@ -49,7 +49,7 @@ In this repository, it is published as Toposoid Community Edition. For more info
 * docker-compose version 1.22.x
 
 ## Recommended environment
-* Required: at least 8GB of RAM (The maximum heap memory size of the JVM is set to 6G (Application: 4G, Neo4J: 2G))
+* Required: at least 20GB of RAM
 * Required: 65G or higher of HDD
 
 ## Setup
