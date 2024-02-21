@@ -11,137 +11,77 @@ In this repository, it is published as Toposoid Community Edition. For more info
 <img width="1760" alt="" src="https://user-images.githubusercontent.com/82787843/135850589-0df6b747-df02-435d-9992-ee1831fec916.png">
 
 ## Knowledge Base Image
-<img width="1747" alt="" src="https://user-images.githubusercontent.com/82787843/135955167-4cbed1eb-a423-4201-82b7-743d37664184.png">
+<img width="1604" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/a4ccaafd-cda0-4060-9e1f-8ea9a0d04dbf">
 
 ## Toposoid project dependencies
-<img width="1770" alt="" src="https://user-images.githubusercontent.com/82787843/212686116-918624a7-7b98-45e4-8c48-9636939214d8.png">
+<img width="1765" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/d3819975-2db2-4d61-909c-4fbe10aedb6e">
 
 
 
-| ProjectName | Function | Status |
-| - | - | - |
-| toposoid | Root project for all Toposoid projects |
-| [toposoid-component-dispatcher-web](https://github.com/toposoid/toposoid-component-dispatcher-web.git) | This microservice integrates two major microservices. One is a microservice that analyzes the predicate argument structure of sentences, and the other is a microservice that makes logical inferences. | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml) |
-| [toposoid-knowledge-register-web](https://github.com/toposoid/toposoid-knowledge-register-web.git) |This Microservice registers the results of predicate argument structure analysis of Japanese natural sentences in a graph database.  | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml) |
-| [toposoid-sat-solver-web](https://github.com/toposoid/toposoid-sat-solver-web)  | This microservice provides solver functionality for Boolean satisfiability problems (SAT) or similar problems (Max-SAT etc.). | [![Test And Build](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml) |
-| [toposoid-sentence-parser-japanese-web](https://github.com/toposoid/toposoid-sentence-parser-japanese-web.git) | This Microservice analyzes the predicate argument structure of Japanese sentences and outputs the result in JSON.  |[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml)|  
-| [toposoid-common-nlp-japanese-web](https://github.com/toposoid/toposoid-common-nlp-japanese-web.git) |This Microservice provides an NLP function that handles Japanese and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml)|
-| [toposoid-sentence-parser-english-web](https://github.com/toposoid/toposoid-sentence-parser-english-web.git)|This Microservice analyzes dependency's structure of English sentences and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml)|
-| [toposoid-common-nlp-english-web](https://github.com/toposoid/toposoid-common-nlp-english-web.git)|This Microservice provides an NLP function that handles English and outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-common-nlp-english-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-nlp-english-web/actions/workflows/action.yml)|
-| [toposoid-deduction-admin-web](https://github.com/toposoid/toposoid-deduction-admin-web.git) | This microservice provides the ability to manage multiple deductive inference logic to register, update microservices.  |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml)|  
-| [toposoid-deduction-unit-exact-match-web](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web.git) | This microservice provides the ability to determine if the text you enter matches the knowledge graph exactly. 　|[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml)| 
-| [toposoid-deduction-unit-synonym-match-web](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web.git　) | This microservice provides the ability to determine if the text you enter matches, provided that the knowledge graph and synonyms are equated. |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml)|
-| [toposoid-deduction-unit-sentence-vector-match-web](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web) | This microservice provides the ability to identify the input text as a distributed representation using the [Bert model](https://github.com/google-research/bert) and match it against the knowledge graph. |[![Test And Build](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml)|
-| [data-accessor-vald-web](https://github.com/toposoid/data-accessor-vald-web) | This microservice is a CUID wrapper for [Vald](https://github.com/vdaas/vald). |[![Test And Build](https://github.com/toposoid/data-accessor-vald-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/data-accessor-vald-web/actions/workflows/action.yml)|
-| [toposoid-feature-vectorizer](https://github.com/toposoid/toposoid-feature-vectorizer) | The main implementation of this module is text-to-vector representation conversion and search. |[![Unit Test](https://github.com/toposoid/toposoid-feature-vectorizer/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-feature-vectorizer/actions/workflows/action.yml)|
-| [toposoid-deduction-common](https://github.com/toposoid/toposoid-deduction-common.git) | This is a common library used by toposoid developer in toposoid projects. In particular, this module is used by units that perform deductive reasoning in toposoid projects.  |[![Unit Test Action](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml)|
-| [toposoid-sentence-parser-japanese](https://github.com/toposoid/toposoid-sentence-parser-japanese.git) | This component performs predicate argument structure analysis when a Japanese sentence is given as input. Then, it outputs the information necessary for converting to a knowledge graph.  |[![Unit Test](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml)|
-| [toposoid-knowledgebase-model](https://github.com/toposoid/toposoid-knowledgebase-model.git) | This library defines a basic model commonly used in toposoid projects.  |[![Header Check Action](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml)|
-| [toposoid-deduction-protocol-model](https://github.com/toposoid/toposoid-deduction-protocol-model.git) | This library defines a basic model commonly used in toposoid projects. Especially these are used in deductive logic.  |[![Header Check Action](https://github.com/toposoid/toposoid-deduction-protocol-model/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-protocol-model/actions/workflows/action.yml)|
-| [toposoid-common](https://github.com/toposoid/toposoid-common.git) | This is a common library used by toposoid developer in toposoid projects.  | [![Unit Test](https://github.com/toposoid/toposoid-common/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common/actions/workflows/action.yml)|
-| [scala-data-accessor-neo4j-web](https://github.com/toposoid/scala-data-accessor-neo4j-web.git) | This Microservice get information from Neo4J graph database. outputs the result in JSON.  |[![Unit Test And Build Image Action](https://github.com/toposoid/scala-data-accessor-neo4j-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/scala-data-accessor-neo4j-web/actions/workflows/action.yml)|
-| [scala-data-accessor-neo4j](https://github.com/toposoid/scala-data-accessor-neo4j.git)| The main implementation of this project is the neo4j driver Wrapper. |[![Unit Test Action](https://github.com/toposoid/scala-data-accessor-neo4j/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/scala-data-accessor-neo4j/actions/workflows/action.yml)|
-| [scala-common](https://github.com/toposoid/scala-common.git) | This is a common library used by Linked Ideal LLC. in Scala projects.  |[![Header Check Action](https://github.com/toposoid/scala-common/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/scala-common/actions/workflows/action.yml)|
 
+| ProjectName                                                                                                                                  | Function                                                                                                                                                                                                  | Status |
+|----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| - |
+| toposoid                                                                                                                                     | Root project for all Toposoid projects                                                                                                                                                                    |
+| [toposoid-component-dispatcher-web](https://github.com/toposoid/toposoid-component-dispatcher-web.git)                                       | This microservice integrates two major microservices. One is a microservice that analyzes the predicate argument structure of sentences, and the other is a microservice that makes logical inferences.   | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-component-dispatcher-web/actions/workflows/action.yml) |
+| [toposoid-easy-search-web](https://github.com/toposoid/toposoid-easy-search-web)                                                             | This microservice provides a simple search API. Specifically, it supports text search and image search.                                                                                                   | [![Test And Build](https://github.com/toposoid/toposoid-easy-search-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-easy-search-web/actions/workflows/action.yml) |
+| [toposoid-knowledge-register-web](https://github.com/toposoid/toposoid-knowledge-register-web.git)                                           | This Microservice registers the results of predicate argument structure analysis of Japanese natural sentences in a graph database.                                                                       | [![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledge-register-web/actions/workflows/action.yml) |
+| [toposoid-sat-solver-web](https://github.com/toposoid/toposoid-sat-solver-web)                                                               | This microservice provides solver functionality for Boolean satisfiability problems (SAT) or similar problems (Max-SAT etc.).                                                                             | [![Test And Build](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sat-solver-web/actions/workflows/action.yml) |
+| [toposoid-sentence-parser-japanese-web](https://github.com/toposoid/toposoid-sentence-parser-japanese-web.git)                               | This Microservice analyzes the predicate argument structure of Japanese sentences and outputs the result in JSON.                                                                                         |[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese-web/actions/workflows/action.yml)|  
+| [toposoid-common-nlp-japanese-web](https://github.com/toposoid/toposoid-common-nlp-japanese-web.git)                                         | This Microservice provides an NLP function that handles Japanese and outputs the result in JSON.                                                                                                          |[![Test And Build](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-nlp-japanese-web/actions/workflows/action.yml)|
+| [toposoid-sentence-parser-english-web](https://github.com/toposoid/toposoid-sentence-parser-english-web.git)                                 | This Microservice analyzes dependency's structure of English sentences and outputs the result in JSON.                                                                                                    |[![Test And Build](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-english-web/actions/workflows/action.yml)|
+| [toposoid-common-nlp-english-web](https://github.com/toposoid/toposoid-common-nlp-english-web.git)                                           | This Microservice provides an NLP function that handles English and outputs the result in JSON.                                                                                                           |[![Test And Build](https://github.com/toposoid/toposoid-common-nlp-english-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-nlp-english-web/actions/workflows/action.yml)|
+| [toposoid-deduction-admin-web](https://github.com/toposoid/toposoid-deduction-admin-web.git)                                                 | This microservice provides the ability to manage multiple deductive inference logic to register, update microservices.                                                                                    |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-admin-web/actions/workflows/action.yml)|  
+| [toposoid-deduction-unit-exact-match-web](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web.git)                           | This microservice provides the ability to determine if the text you enter matches the knowledge graph exactly. 　                                                                                          |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-exact-match-web/actions/workflows/action.yml)| 
+| [toposoid-deduction-unit-synonym-match-web](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web.git)                       | This microservice provides the ability to determine if the text you enter matches, provided that the knowledge graph and synonyms are equated.                                                            |[![Unit Test And Build Image Action](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-unit-synonym-match-web/actions/workflows/action.yml)|
+| [toposoid-deduction-unit-sentence-vector-match-web](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web)           | This microservice provides the ability to identify the input text as a distributed representation using the [Bert model](https://github.com/google-research/bert) and match it against the knowledge graph. |[![Test And Build](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-deduction-unit-sentence-vector-match-web/actions/workflows/action.yml)|
+| [toposoid-deduction-unit-image-vector-match-web](https://github.com/toposoid/toposoid-deduction-unit-image-vector-match-web)                 | This microservice makes inferences by matching images to a knowledge database.                                                                                                                            |[![Test And Build](https://github.com/toposoid/toposoid-deduction-unit-image-vector-match-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-deduction-unit-image-vector-match-web/actions/workflows/action.yml)|
+| [toposoid-deduction-unit-whole-sentence-image-match-web](https://github.com/toposoid/toposoid-deduction-unit-whole-sentence-image-match-web) | This microservice performs inference by comparing images with a knowledge database, and handles cases where images are linked to entire sentences.                                                        |[![Test And Build](https://github.com/toposoid/toposoid-deduction-unit-whole-sentence-image-match-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-deduction-unit-whole-sentence-image-match-web/actions/workflows/action.yml)|
+| [data-accessor-weaviate-web](https://github.com/toposoid/data-accessor-weaviate-web)                                                         | This microservice is a CUID wrapper for [Weaviate](https://github.com/weaviate/weaviate).                                                                                                                 |[![Test And Build](https://github.com/toposoid/data-accessor-weaviate-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/data-accessor-weaviate-web/actions/workflows/action.yml)|
+| [toposoid-contents-admin-web](https://github.com/toposoid/toposoid-contents-admin-web)                                                       |This microservice is responsible for managing content. Specifically, this includes image management. outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-contents-admin-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-contents-admin-web/actions/workflows/action.yml)|
+| [toposoid-common-image-recognition-web](https://github.com/toposoid/toposoid-common-image-recognition-web)        |This microservice is responsible for vectorizing data for image recognition. outputs the result in JSON.|[![Test And Build](https://github.com/toposoid/toposoid-common-image-recognition-web/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common-image-recognition-web/actions/workflows/action.yml)|
+| [toposoid-feature-vectorizer](https://github.com/toposoid/toposoid-feature-vectorizer)                                                       | The main implementation of this module is text-to-vector representation conversion and search.                                                                                                            |[![Unit Test](https://github.com/toposoid/toposoid-feature-vectorizer/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-feature-vectorizer/actions/workflows/action.yml)|
+| [toposoid-deduction-common](https://github.com/toposoid/toposoid-deduction-common.git)                                                       | This is a common library used by toposoid developer in toposoid projects. In particular, this module is used by units that perform deductive reasoning in toposoid projects.                              |[![Unit Test Action](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-common/actions/workflows/action.yml)|
+| [toposoid-sentence-parser-japanese](https://github.com/toposoid/toposoid-sentence-parser-japanese.git)                                       | This component performs predicate argument structure analysis when a Japanese sentence is given as input. Then, it outputs the information necessary for converting to a knowledge graph.                 |[![Unit Test](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-sentence-parser-japanese/actions/workflows/action.yml)|
+| [toposoid-knowledgebase-model](https://github.com/toposoid/toposoid-knowledgebase-model.git)                                                 | This library defines a basic model commonly used in toposoid projects.                                                                                                                                    |[![Header Check Action](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-knowledgebase-model/actions/workflows/action.yml)|
+| [toposoid-deduction-protocol-model](https://github.com/toposoid/toposoid-deduction-protocol-model.git)                                       | This library defines a basic model commonly used in toposoid projects. Especially these are used in deductive logic.                                                                                      |[![Header Check Action](https://github.com/toposoid/toposoid-deduction-protocol-model/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/toposoid-deduction-protocol-model/actions/workflows/action.yml)|
+| [toposoid-common](https://github.com/toposoid/toposoid-common.git)                                                                           | This is a common library used by toposoid developer in toposoid projects.                                                                                                                                 | [![Unit Test](https://github.com/toposoid/toposoid-common/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/toposoid-common/actions/workflows/action.yml)|
+| [scala-data-accessor-neo4j-web](https://github.com/toposoid/scala-data-accessor-neo4j-web.git)                                               | This Microservice get information from Neo4J graph database. outputs the result in JSON.                                                                                                                  |[![Unit Test And Build Image Action](https://github.com/toposoid/scala-data-accessor-neo4j-web/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/scala-data-accessor-neo4j-web/actions/workflows/action.yml)|
+| [scala-data-accessor-neo4j](https://github.com/toposoid/scala-data-accessor-neo4j.git)                                                       | The main implementation of this project is the neo4j driver Wrapper.                                                                                                                                      |[![Unit Test Action](https://github.com/toposoid/scala-data-accessor-neo4j/actions/workflows/action.yml/badge.svg?branch=main)](https://github.com/toposoid/scala-data-accessor-neo4j/actions/workflows/action.yml)|
+| [scala-common](https://github.com/toposoid/scala-common.git)                                                                                 | This is a common library used by Linked Ideal LLC. in Scala projects.                                                                                                                                     |[![Header Check Action](https://github.com/toposoid/scala-common/actions/workflows/action.yml/badge.svg)](https://github.com/toposoid/scala-common/actions/workflows/action.yml)|
 
 ## Requirements
 * Docker version 20.10.x, or later
 * docker-compose version 1.22.x
 
-## Recommended environment
-* Required: at least 20GB of RAM
-* Required: 65G or higher of HDD
+## Recommended environment For Standalone
+* Required: at least 16GB of RAM
+* Required: at least 60G of HDD(Total required Docker Image size)
+* Please understand that since we are dealing with large models such as LLM, the Dockerfile size is large and the required machine SPEC is high.
 
-## Setup
+## Setup For Standalone
 ```bssh
-rm -f vald-config/backup/* && docker-compose up -d
+docker-compose up
 ```
 * It takes more than 20 minutes to pull the Docker image for the first time.
-* If vald does not start due to an error, after deleting the files directly under vald-config/backup, commenting out the following part in docker-compose.yml may work.
-```yml
-  vald:
-    image: vdaas/vald-agent-ngt:v1.6.3
-    #user: 1000:1000
-    volumes:
-      - ./vald-config:/etc/server
-      #- /etc/passwd:/etc/passwd:ro
-      #- /etc/group:/etc/group:ro
-    networks:
-      app_net:
-        ipv4_address: 172.30.0.10
-    ports:
-      - 8081:8081
-```
-
 
 ## Usage
-```bash
-# Regist knowledge
-# Japanese
-curl -X POST -H "Content-Type: application/json" -d '{
-    "premiseList": [],
-    "premiseLogicRelation": [],
-    "claimList": [
-        {
-            "sentence": "案ずるより産むが易し。",
-            "lang": "ja_JP",
-            "extentInfoJson": "{}",
-            "isNegativeSentence": false
-        }
-    ],
-    "claimLogicRelation": []
-}' http://localhost:4444/regist/regist
-# English
-curl -X POST -H "Content-Type: application/json" -d '{
-    "premiseList": [],
-    "premiseLogicRelation": [],
-    "claimList": [
-        {
-            "sentence": "Our life is our art.",
-            "lang": "en_US",
-            "extentInfoJson": "{}",
-            "isNegativeSentence": false
-        }
-    ],
-    "claimLogicRelation": []
-}' http://localhost:4444/regist/regist
-```
+Try accessing http://localhost:4444 in your browser.
+### Knowledge data registration. You can register both text and images.
+<img width="1752" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/4e10ab60-08b2-422a-8dc6-15f17a1796b0">
+
+### Easy search. You can search both text and images.
+<img width="1774" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/c6e905ff-a295-4861-ad81-5c45dc51767d">
+
+
 Try accessing http://localhost:7474 in your browser.
 You will be able to see the data you registered from the API.
 as follows
-<img width="1755" alt="スクリーンショット 2022-01-08 19 31 10" src="https://user-images.githubusercontent.com/82787843/148640948-005c12d4-17dd-49dc-95fb-b3e4b6d8b0d6.png">
+<img width="1604" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/a4ccaafd-cda0-4060-9e1f-8ea9a0d04dbf">
 
-```bash
-# Deduction
-# Japanese
-curl -X POST -H "Content-Type: application/json" -d '{
-    "premise": [],
-    "claim": [
-        {
-            "sentence": "案ずるより産むが易し。",
-            "lang": "ja_JP",
-            "extentInfoJson": "{}",
-            "isNegativeSentence": false
-        }
-    ]
-}' http://localhost:4444/deduction/analyze
-# English
-curl -X POST -H "Content-Type: application/json" -d '{
-    "premise": [],
-    "claim": [
-        {
-            "sentence": "Our life is our art.",
-            "lang": "en_US",
-            "extentInfoJson": "{}",
-            "isNegativeSentence": false
-        }
-    ]
-}' http://localhost:4444/deduction/analyze
-```
-<img width="1179" alt="2021-10-05 12 12 08" src="https://user-images.githubusercontent.com/82787843/135954527-25c16a6b-b50a-4783-a5c0-1b8b4062d453.png">
+### Deduction's Example
+* During inference, it is possible to select units accordingly. Please set from the screen below.
+<img width="1239" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/2844fa7a-86c3-4cad-9f3c-6e6680590452">
 
-
-## Deduction's Example
 ### An example of a logic puzzle called a liar game
 
 * Demo Web Application https://toposoid-service.com/
@@ -175,8 +115,9 @@ This problem can be defined by one regulation and three hypothesis.
 |6|![](https://user-images.githubusercontent.com/82787843/169679754-eed0c88d-7452-4edb-9601-0d2c038d9d4a.png)|![](https://user-images.githubusercontent.com/82787843/169679755-4e0b213b-9892-42e8-960b-daafe1354752.png)|
 
 ### result
-Press the Analyze button to start logical inference.
-![](https://user-images.githubusercontent.com/82787843/169679810-3d821e14-ca85-4178-9926-da4b1cf84fb7.png)
+* Press the Analyze button to start logical inference.
+<img width="1239" alt="" src="https://user-images.githubusercontent.com/82787843/169679810-3d821e14-ca85-4178-9926-da4b1cf84fb7.png">
+
 
 
 
