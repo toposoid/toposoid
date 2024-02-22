@@ -15,6 +15,14 @@ services:
       - TOPOSOID_UI_PROTOCOL=http
     ports:
       - 4444:4444
+    depends_on:
+      - toposoid-component-dispatcher-web
+      - toposoid-knowledge-register-web
+      - toposoid-sentence-parser-japanese-web
+      - toposoid-sentence-parser-english-web
+      - toposoid-contents-admin-web
+      - toposoid-easy-search-web
+      - toposoid-deduction-admin-web
   toposoid-easy-search-web:
     image: toposoid/toposoid-easy-search-web:0.5-lowspec
     environment:
@@ -127,8 +135,6 @@ services:
       - PLAY_HTTP_PORT=9101
     ports:
       - 9101:9101
-    depends_on:
-      - scala-data-accessor-neo4j-web
   toposoid-deduction-unit-synonym-match-web:
     image: toposoid/toposoid-deduction-unit-synonym-match-web:0.5-lowspec
     environment:
@@ -137,8 +143,6 @@ services:
       - PLAY_HTTP_PORT=9102
     ports:
       - 9102:9102
-    depends_on:
-      - scala-data-accessor-neo4j-web
   toposoid-deduction-unit-sentence-vector-match-web:
     image: toposoid/toposoid-deduction-unit-sentence-vector-match-web:0.5-lowspec
     environment:
@@ -154,9 +158,6 @@ services:
       - PLAY_HTTP_PORT=9103
     ports:
       - 9103:9103
-    depends_on:
-      - scala-data-accessor-neo4j-web
-      - data-accessor-sentence-weaviate-web
 
   toposoid-deduction-unit-image-vector-match-web:
     image: toposoid/toposoid-deduction-unit-image-vector-match-web:0.5-lowspec
@@ -178,12 +179,6 @@ services:
       - PLAY_HTTP_PORT=9104
     ports:
       - 9104:9104
-    depends_on:
-      - scala-data-accessor-neo4j-web
-      - toposoid-common-nlp-japanese-web
-      - toposoid-common-nlp-english-web
-      - data-accessor-sentence-weaviate-web
-      - data-accessor-image-weaviate-web
 
   toposoid-deduction-unit-whole-sentence-image-match-web:
     image: toposoid/toposoid-deduction-unit-whole-sentence-image-match-web:0.5-lowspec
@@ -243,6 +238,9 @@ services:
       - TOPOSOID_PARSER_SPACY_MODEL_EN=en_core_web_md
     ports:
       - 9007:9007
+    depends_on:
+      - corenlp
+
   toposoid-common-nlp-english-web:
     image: toposoid/toposoid-common-nlp-english-web:0.5-lowspec
     environment:
@@ -301,8 +299,7 @@ services:
       - TOPOSOID_WEAVIATE_SIMILARITY_THRESHOLD=0.87
     ports:
       - 9020:9011
-    depends_on:
-      - sentence-weaviate
+
   sentence-weaviate:
     command:
       - --host
@@ -334,8 +331,6 @@ services:
       - TOPOSOID_WEAVIATE_SIMILARITY_THRESHOLD=0.9
     ports:
       - 9021:9011
-    depends_on:
-      - image-weaviate
 
   image-weaviate:
     command:

@@ -65,7 +65,8 @@ docker-compose up
 * It takes more than 20 minutes to pull the Docker image for the first time.
 
 ## Usage
-Try accessing http://localhost:4444 in your browser.
+* Try accessing http://localhost:4444 in your browser.
+* The UI has been confirmed to work only on Chrome browser.
 ### Knowledge data registration. You can register both text and images.
 <img width="1752" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/4e10ab60-08b2-422a-8dc6-15f17a1796b0">
 
