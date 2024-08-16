@@ -100,6 +100,13 @@ services:
       - TOPOSOID_DEDUCTION_UNIT3_PORT=9103
       - TOPOSOID_DEDUCTION_UNIT4_PORT=9104
       - TOPOSOID_DEDUCTION_UNIT5_PORT=9105
+      - TOPOSOID_DEDUCTION_UNIT1_NAME=ExactMatch
+      - TOPOSOID_DEDUCTION_UNIT2_NAME=SynonymMatch
+      - TOPOSOID_DEDUCTION_UNIT3_NAME=ImageVectorMatch
+      - TOPOSOID_DEDUCTION_UNIT4_NAME=SentenceVectorMatch
+      - TOPOSOID_DEDUCTION_UNIT5_NAME=WholeSentenceImageMatch
+      - TOPOSOID_IN_MEMORY_DB_WEB_HOST=data-accessor-redis-web
+      - TOPOSOID_IN_MEMORY_DB_WEB_PORT=9015
     ports:
       - 9003:9003
   toposoid-knowledge-register-web:
@@ -356,3 +363,20 @@ services:
       HUGGINGFACE_APIKEY: ''
       ENABLE_MODULES: 'text2vec-cohere,text2vec-huggingface,text2vec-palm,text2vec-openai,generative-openai,generative-cohere,generative-palm,ref2vec-centroid,reranker-cohere,qna-openai'
       CLUSTER_HOSTNAME: 'node1'
+  redis:
+    #restart: always
+    image: redis:7.2
+    ports:
+      - "6379:6379"
+
+  data-accessor-redis-web:
+    image: toposoid/data-accessor-redis-web:0.6-SNAPSHOT-lowspec
+    environment:
+      - PRIVATE_IP_ADDRESS=data-accessor-redis-web
+      - TOPOSOID_IN_MEMORY_DB_HOST=redis
+      - TOPOSOID_IN_MEMORY_DB_PORT=6379
+      - PLAY_HTTP_PORT=9015
+    ports:
+      - "9015:9015"
+    depends_on:
+      - redis
