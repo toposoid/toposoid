@@ -27,8 +27,8 @@ services:
     image: toposoid/toposoid-easy-search-web:0.6-SNAPSHOT-lowspec
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-easy-search-web
-      - TOPOSOID_GRAPHDB_HOST=neo4j
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_HOST=toposoid-sentence-parser-japanese-web
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_PORT=9001
       - TOPOSOID_SENTENCE_PARSER_EN_WEB_HOST=toposoid-sentence-parser-english-web
@@ -56,7 +56,6 @@ services:
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-component-dispatcher-web
       - PLAY_HTTP_PORT=9004
-      - TOPOSOID_GRAPHDB_HOST=neo4j
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_HOST=toposoid-sentence-parser-japanese-web
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_PORT=9001
       - TOPOSOID_SENTENCE_PARSER_EN_WEB_HOST=toposoid-sentence-parser-english-web
@@ -88,8 +87,8 @@ services:
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-admin-web
       - PLAY_HTTP_PORT=9003
-      - TOPOSOID_GRAPHDB_HOST=neo4j
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_DEDUCTION_UNIT1_HOST=toposoid-deduction-unit-exact-match-web
       - TOPOSOID_DEDUCTION_UNIT2_HOST=toposoid-deduction-unit-synonym-match-web
       - TOPOSOID_DEDUCTION_UNIT3_HOST=toposoid-deduction-unit-sentence-vector-match-web
@@ -113,7 +112,8 @@ services:
     image: toposoid/toposoid-knowledge-register-web:0.6-SNAPSHOT-lowspec
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-knowledge-register-web
-      - TOPOSOID_GRAPHDB_HOST=neo4j
+      - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_HOST=toposoid-sentence-parser-japanese-web
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_PORT=9001
       - TOPOSOID_SENTENCE_PARSER_EN_WEB_HOST=toposoid-sentence-parser-english-web
@@ -137,8 +137,8 @@ services:
     image: toposoid/toposoid-deduction-unit-exact-match-web:0.6-SNAPSHOT-lowspec
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-exact-match-web
-      - TOPOSOID_GRAPHDB_HOST=neo4j
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - PLAY_HTTP_PORT=9101
     ports:
       - 9101:9101
@@ -147,6 +147,7 @@ services:
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-synonym-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - PLAY_HTTP_PORT=9102
     ports:
       - 9102:9102
@@ -155,6 +156,7 @@ services:
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-sentence-vector-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_COMMON_NLP_JP_WEB_HOST=toposoid-common-nlp-japanese-web
       - TOPOSOID_COMMON_NLP_JP_WEB_PORT=9006
       - TOPOSOID_COMMON_NLP_EN_WEB_HOST=toposoid-common-nlp-english-web
@@ -171,6 +173,7 @@ services:
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-image-vector-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_COMMON_NLP_JP_WEB_HOST=toposoid-common-nlp-japanese-web
       - TOPOSOID_COMMON_NLP_JP_WEB_PORT=9006
       - TOPOSOID_COMMON_NLP_EN_WEB_HOST=toposoid-common-nlp-english-web
@@ -192,6 +195,7 @@ services:
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-whole-sentence-image-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=scala-data-accessor-neo4j-web
+      - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_COMMON_NLP_JP_WEB_HOST=toposoid-common-nlp-japanese-web
       - TOPOSOID_COMMON_NLP_JP_WEB_PORT=9006
       - TOPOSOID_COMMON_NLP_EN_WEB_HOST=toposoid-common-nlp-english-web
@@ -316,7 +320,7 @@ services:
       - '8080'
       - --scheme
       - http
-    image: semitechnologies/weaviate:1.21.2
+    image: cr.weaviate.io/semitechnologies/weaviate:1.26.3
     ports:
       - 8080:8080
     #volumes:
@@ -336,7 +340,7 @@ services:
     environment:
       - TOPOSOID_WEAVIATE_HOST=image-weaviate
       - TOPOSOID_WEAVIATE_PORT=8081
-      - TOPOSOID_WEAVIATE_SIMILARITY_THRESHOLD=0.9
+      - TOPOSOID_WEAVIATE_SIMILARITY_THRESHOLD=0.8
       - TOPOSOID_DATA_ACCESSOR_PORT=9011
     ports:
       - 9021:9011
@@ -349,7 +353,7 @@ services:
       - '8081'
       - --scheme
       - http
-    image: semitechnologies/weaviate:1.21.2
+    image: cr.weaviate.io/semitechnologies/weaviate:1.26.3
     ports:
       - 8081:8081
     #volumes:
