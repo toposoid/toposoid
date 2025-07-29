@@ -11,11 +11,10 @@ In this repository, it is published as Toposoid Community Edition. For more info
 <img width="1760" alt="" src="https://user-images.githubusercontent.com/82787843/135850589-0df6b747-df02-435d-9992-ee1831fec916.png">
 
 ## Knowledge Base Image
-<img width="1604" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/a4ccaafd-cda0-4060-9e1f-8ea9a0d04dbf">
+<img width="1760" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/a4ccaafd-cda0-4060-9e1f-8ea9a0d04dbf"/>
 
 ## Toposoid project dependencies
-<img width="1765" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/d3819975-2db2-4d61-909c-4fbe10aedb6e">
-
+<img width="1760" alt="" src="https://github.com/user-attachments/assets/16faf7e6-2540-4d5c-a206-c2f29492971c"/>
 
 
 
@@ -69,6 +68,9 @@ docker-compose up
 * The UI has been confirmed to work only on Chrome browser.
 ### Knowledge data registration. You can register both text and images.
 <img width="1752" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/4e10ab60-08b2-422a-8dc6-15f17a1796b0">
+
+### Knowledge data registration. You can also register via documents.
+<img width="1748" alt="" height="829"  src="https://github.com/user-attachments/assets/79454f3e-5fcf-4168-a604-d15b2e26737a" />
 
 ### Easy search. You can search both text and images.
 <img width="1774" alt="" src="https://github.com/toposoid/toposoid/assets/82787843/c6e905ff-a295-4861-ad81-5c45dc51767d">
