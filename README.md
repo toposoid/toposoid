@@ -63,10 +63,14 @@ In this repository, it is published as Toposoid Community Edition. For more info
 * Please understand that since we are dealing with large models such as LLM, the Dockerfile size is large and the required machine SPEC is high.
 
 ## Setup For Standalone
+__Toposoid uses the [PDF Extract API](https://developer.adobe.com/document-services/docs/overview/pdf-extract-api/) provided by Adobe for document registration.The PDF Extract API can be used free of charge under the following conditions:https://developer.adobe.com/document-services/docs/overview/limits/#free-tier 
+In order to use The PDF Extract API, you need to create credentials. https://developer.adobe.com/document-services/apis/pdf-services/ After creating the credentials, please set the following environment variables in docker-compose.yml. TOPOSOID_PDF_SERVICES_CLIENT_ID TOPOSOID_PDF_SERVICES_CLIENT_SECRET__
+
 ```bssh
 docker-compose up
 ```
 * It takes more than 30 minutes to pull the Docker image for the first time.
+
 
 ## Usage
 * Try accessing http://localhost:4444 in your browser.
@@ -133,7 +137,7 @@ This problem can be defined by one regulation and three hypothesis.
 * The memory allocated to Neo4J can be adjusted with NEO4J_dbms_memory_heap_max__size in docker-compose.yml.
 * Services provided by Toposoid are accessible on port 4444
 * Toposoid uses the [PDF Extract API](https://developer.adobe.com/document-services/docs/overview/pdf-extract-api/) provided by Adobe for document registration.The PDF Extract API can be used free of charge under the following conditions:https://developer.adobe.com/document-services/docs/overview/limits/#free-tier 
-* In order to use The PDF Extract API, you need to create credentials. https://developer.adobe.com/document-services/apis/pdf-services/ After creating the credentials, please set the following environment variables in docker-compose.yml. TOPOSOID_PDF_SERVICES_CLIENT_ID TOPOSOID_PDF_SERVICES_CLIENT_SECRET 
+* In order to use The PDF Extract API, you need to create credentials. https://developer.adobe.com/document-services/apis/pdf-services/ After creating the credentials, please set the following environment variables in docker-compose.yml. TOPOSOID_PDF_SERVICES_CLIENT_ID TOPOSOID_PDF_SERVICES_CLIENT_SECRET
 * If you want to run in a remote environment or a virtual environment, change PRIVATE_IP_ADDRESS in docker-compose.yml according to your environment.
 
 
