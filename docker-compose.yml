@@ -1,7 +1,7 @@
 version: '3'
 services:
   toposoid-ui:
-    image: toposoid/toposoid-ui:0.6
+    image: toposoid/toposoid-ui:0.7-SNAPSHOT
     environment:
       - TOPOSOID_COMPONENT_DISPATCHER_WEB_PROXY=toposoid-component-dispatcher-web
       - TOPOSOID_KNOWLEDGE_REGISTER_WEB_PROXY=toposoid-knowledge-register-web
@@ -13,7 +13,7 @@ services:
     ports:
       - 4444:4444
   toposoid-easy-search-web:
-    image: toposoid/toposoid-easy-search-web:0.6
+    image: toposoid/toposoid-easy-search-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-easy-search-web
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
@@ -46,7 +46,7 @@ services:
       - 9014:9014
 
   toposoid-component-dispatcher-web:
-    image: toposoid/toposoid-component-dispatcher-web:0.6
+    image: toposoid/toposoid-component-dispatcher-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-component-dispatcher-web
       - PLAY_HTTP_PORT=9004
@@ -87,7 +87,7 @@ services:
     ports:
       - 9004:9004
   toposoid-sat-solver-web:
-    image: toposoid/toposoid-sat-solver-web:0.6
+    image: toposoid/toposoid-sat-solver-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-sat-solver-web
       - PLAY_HTTP_PORT=9009
@@ -96,7 +96,7 @@ services:
     ports:
       - 9009:9009
   toposoid-deduction-admin-web:
-    image: toposoid/toposoid-deduction-admin-web:0.6
+    image: toposoid/toposoid-deduction-admin-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-admin-web
       - PLAY_HTTP_PORT=9003
@@ -122,14 +122,14 @@ services:
     ports:
       - 9003:9003
   toposoid-knowledge-register-web:
-    image: toposoid/toposoid-knowledge-register-web:0.6
+    image: toposoid/toposoid-knowledge-register-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-knowledge-register-web
       - TOPOSOID_MQ_HOST=elasticmq
       - TOPOSOID_MQ_PORT=9324
       - TOPOSOID_MQ_ACCESS_KEY=__##YOUR_AWS_ACCESS_KEY##__
       - TOPOSOID_MQ_SECRET_KEY=__##YOUR_AWS_SECRET_KEY##__
-      - TOPOSOID_MQ_KNOWLEDGE_REGISTER_QUENE=toposoid-knowledge-register-queue.fifo      
+      - TOPOSOID_MQ_KNOWLEDGE_REGISTER_QUENE=toposoid-knowledge-register-queue.fifo
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
       - TOPOSOID_GRAPHDB_WEB_PORT=9005
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_HOST=toposoid-sentence-parser-japanese-web
@@ -155,7 +155,7 @@ services:
       - 9002:9002
 
   toposoid-knowledge-register-subscriber:
-    image: toposoid/toposoid-knowledge-register-subscriber:0.6
+    image: toposoid/toposoid-knowledge-register-subscriber:0.7-SNAPSHOT
     environment:
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
       - TOPOSOID_GRAPHDB_WEB_PORT=9005
@@ -188,7 +188,7 @@ services:
 
 
   toposoid-document-analysis-subscriber:
-    image: toposoid/toposoid-document-analysis-subscriber:0.6
+    image: toposoid/toposoid-document-analysis-subscriber:0.7-SNAPSHOT
     environment:
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_HOST=toposoid-sentence-parser-japanese-web
       - TOPOSOID_SENTENCE_PARSER_JP_WEB_PORT=9001
@@ -222,13 +222,13 @@ services:
       - TOPOSOID_NON_SENTENCE_VECTORDB_ACCESSOR_PORT=9011
 
   elasticmq:
-    image: toposoid/toposoid-elasticmq:0.6
+    image: toposoid/toposoid-elasticmq:0.7-SNAPSHOT
     ports:
       - 9324:9324
       - 9325:9325
 
   data-accessor-mysql-web:
-    image: toposoid/data-accessor-mysql-web:0.6
+    image: toposoid/data-accessor-mysql-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=data-accessor-mysql-web
       - TOPOSOID_RDB_HOST= mysql
@@ -243,7 +243,7 @@ services:
       - mysql
 
   mysql:
-    image: toposoid/toposoid-rdb:0.6
+    image: toposoid/toposoid-rdb:0.7-SNAPSHOT
     environment:
       - MYSQL_DATABASE=toposoiddb
       - MYSQL_USER=toposoid
@@ -254,7 +254,7 @@ services:
       - 3306:3306
 
   toposoid-deduction-unit-exact-match-web:
-    image: toposoid/toposoid-deduction-unit-exact-match-web:0.6
+    image: toposoid/toposoid-deduction-unit-exact-match-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-exact-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
@@ -265,7 +265,7 @@ services:
     depends_on:
       - data-accessor-neo4j-web
   toposoid-deduction-unit-synonym-match-web:
-    image: toposoid/toposoid-deduction-unit-synonym-match-web:0.6
+    image: toposoid/toposoid-deduction-unit-synonym-match-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-synonym-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
@@ -276,7 +276,7 @@ services:
     depends_on:
       - data-accessor-neo4j-web
   toposoid-deduction-unit-sentence-vector-match-web:
-    image: toposoid/toposoid-deduction-unit-sentence-vector-match-web:0.6
+    image: toposoid/toposoid-deduction-unit-sentence-vector-match-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-sentence-vector-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
@@ -296,7 +296,7 @@ services:
       - data-accessor-sentence-weaviate-web
 
   toposoid-deduction-unit-image-vector-match-web:
-    image: toposoid/toposoid-deduction-unit-image-vector-match-web:0.6
+    image: toposoid/toposoid-deduction-unit-image-vector-match-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-image-vector-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
@@ -324,7 +324,7 @@ services:
       - data-accessor-image-weaviate-web
 
   toposoid-deduction-unit-whole-sentence-image-match-web:
-    image: toposoid/toposoid-deduction-unit-whole-sentence-image-match-web:0.6
+    image: toposoid/toposoid-deduction-unit-whole-sentence-image-match-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-whole-sentence-image-match-web
       - TOPOSOID_GRAPHDB_WEB_HOST=data-accessor-neo4j-web
@@ -346,7 +346,7 @@ services:
       - 9105:9105
 
   data-accessor-neo4j-web:
-    image: toposoid/data-accessor-neo4j-web:0.6
+    image: toposoid/data-accessor-neo4j-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=data-accessor-neo4j-web
       - TOPOSOID_GRAPHDB_HOST=neo4j
@@ -354,14 +354,14 @@ services:
     ports:
       - 9005:9005
   toposoid-sentence-parser-japanese-web:
-    image: toposoid/toposoid-sentence-parser-japanese-web:0.6
+    image: toposoid/toposoid-sentence-parser-japanese-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-sentence-parser-japanese-web
       - PLAY_HTTP_PORT=9001
     ports:
       - 9001:9001
   toposoid-common-nlp-japanese-web:
-    image: toposoid/toposoid-common-nlp-japanese-web:0.6-lowspec
+    image: toposoid/toposoid-common-nlp-japanese-web:0.7-SNAPSHOT-lowspec
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-common-nlp-japanese-web
       - TOPOSOID_SYNONYM_NOUN_SIMILARITY_THRESHHOLD_JP=0.52
@@ -374,7 +374,7 @@ services:
     ports:
       - 9006:9006
   toposoid-sentence-parser-english-web:
-    image: toposoid/toposoid-sentence-parser-english-web:0.6-lowspec
+    image: toposoid/toposoid-sentence-parser-english-web:0.7-SNAPSHOT-lowspec
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-sentence-parser-english-web
       - PLAY_HTTP_PORT=9007
@@ -383,7 +383,7 @@ services:
     ports:
       - 9007:9007
   toposoid-common-nlp-english-web:
-    image: toposoid/toposoid-common-nlp-english-web:0.6-lowspec
+    image: toposoid/toposoid-common-nlp-english-web:0.7-SNAPSHOT-lowspec
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-common-nlp-english-web
       - TOPOSOID_SYNONYM_NOUN_SIMILARITY_THRESHHOLD_EN=0.52
@@ -417,7 +417,7 @@ services:
       - NEO4J_dbms_default__database=neo4j
       - NEO4J_AUTH=neo4j/p@ssw0rd
   toposoid-contents-admin-web:
-    image: toposoid/toposoid-contents-admin-web:0.6
+    image: toposoid/toposoid-contents-admin-web:0.7-SNAPSHOT
     environment:
       - TOPOSOID_CONTENTS_URL=http://toposoid-contents-admin-web:9012/contents/
       - TOPOSOID_RDB_WEB_HOST=data-accessor-mysql-web
@@ -435,7 +435,7 @@ services:
       - 9012:9012
 
   toposoid-common-image-recognition-web:
-    image: toposoid/toposoid-common-image-recognition-web:0.6-lowspec
+    image: toposoid/toposoid-common-image-recognition-web:0.7-SNAPSHOT-lowspec
     environment:
       - TOPOSOID_IMAGE_RECOGNITION_VIT_MODEL=google/vit-base-patch16-224
       - TOPOSOID_IMAGE_RECOGNITION_MOBILE_VIT_MODEL=apple/mobilevit-small
@@ -444,7 +444,7 @@ services:
       - 9013:9013
 
   data-accessor-sentence-weaviate-web:
-    image: toposoid/data-accessor-weaviate-web:0.6
+    image: toposoid/data-accessor-weaviate-web:0.7-SNAPSHOT
     environment:
       - TOPOSOID_WEAVIATE_HOST=sentence-weaviate
       - TOPOSOID_WEAVIATE_PORT=8080
@@ -478,7 +478,7 @@ services:
       CLUSTER_HOSTNAME: 'node1'
 
   data-accessor-image-weaviate-web:
-    image: toposoid/data-accessor-weaviate-web:0.6
+    image: toposoid/data-accessor-weaviate-web:0.7-SNAPSHOT
     environment:
       - TOPOSOID_WEAVIATE_HOST=image-weaviate
       - TOPOSOID_WEAVIATE_PORT=8081
@@ -513,7 +513,7 @@ services:
       CLUSTER_HOSTNAME: 'node1'
 
   data-accessor-non-sentence-weaviate-web:
-    image: toposoid/data-accessor-weaviate-web:0.6
+    image: toposoid/data-accessor-weaviate-web:0.7-SNAPSHOT
     environment:
       - TOPOSOID_WEAVIATE_HOST=non-sentence-weaviate
       - TOPOSOID_WEAVIATE_PORT=8082
@@ -554,7 +554,7 @@ services:
       - "6379:6379"
 
   data-accessor-redis-web:
-    image: toposoid/data-accessor-redis-web:0.6
+    image: toposoid/data-accessor-redis-web:0.7-SNAPSHOT
     environment:
       - PRIVATE_IP_ADDRESS=data-accessor-redis-web
       - TOPOSOID_IN_MEMORY_DB_HOST=redis
@@ -566,6 +566,6 @@ services:
       - redis
 
   toposoid-language-detector-web:
-    image: toposoid/toposoid-language-detector-web:0.6
+    image: toposoid/toposoid-language-detector-web:0.7-SNAPSHOT
     ports:
       - 9017:9017
